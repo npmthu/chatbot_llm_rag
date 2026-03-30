@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NMK Architects – Trợ lý AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ── Sidebar ─────────────────────────────────── -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-logo">NMK</div>
+          <div class="brand-text">
+            <span class="brand-name">Nguyen Minh Khang</span>
+            <span class="brand-tagline">Architects</span>
+          </div>
+        </div>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Đóng menu">&#x2715;</button>
+      </div>
+
+      <div class="sidebar-body">
+        <p class="sidebar-section-label">Câu hỏi gợi ý</p>
+        <ul class="suggestions" id="suggestions">
+          <li class="suggestion-chip" data-q="Công ty NMK Architects làm những dịch vụ gì?">Dịch vụ của NMK là gì?</li>
+          <li class="suggestion-chip" data-q="Các dự án nổi bật của Nguyen Minh Khang Architects?">Dự án nổi bật</li>
+          <li class="suggestion-chip" data-q="Liên hệ với NMK Architects như thế nào?">Thông tin liên hệ</li>
+          <li class="suggestion-chip" data-q="Quy trình thiết kế và thi công của công ty?">Quy trình thi công</li>
+          <li class="suggestion-chip" data-q="Chi phí thiết kế nội thất tại NMK là bao nhiêu?">Chi phí thiết kế</li>
+          <li class="suggestion-chip" data-q="NMK có thiết kế phong cách Japandi không?">Phong cách Japandi</li>
+        </ul>
+
+        <p class="sidebar-section-label" style="margin-top: 24px;">Thông tin</p>
+        <div class="info-card">
+          <div class="info-row">
+            <span class="info-icon">&#9742;</span>
+            <span>0918.195.615</span>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">&#9993;</span>
+            <span>ctynguyenminhkhang@gmail.com</span>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">&#9201;</span>
+            <span>T2–T7: 8:00–17:30</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="status-row">
+          <span class="status-dot" id="statusDot"></span>
+          <span class="status-label" id="statusLabel">Đang kiểm tra...</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── Overlay (mobile) ─────────────────────────── -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ── Main chat panel ─────────────────────────── -->
+    <main class="chat-panel">
+
+      <!-- Header -->
+      <header class="chat-header">
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-identity">
+          <div class="avatar avatar--bot">NMK</div>
+          <div>
+            <div class="header-title">Trợ lý AI – NMK Architects</div>
+            <div class="header-sub">Thiết kế · Thi công · Trách nhiệm</div>
+          </div>
+        </div>
+        <button class="clear-btn" id="clearBtn" title="Xóa cuộc trò chuyện">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+          </svg>
+        </button>
+      </header>
+
+      <!-- Messages -->
+      <div class="messages" id="messages">
+        <!-- Welcome message injected by JS -->
+      </div>
+
+      <!-- Input area -->
+      <footer class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="input"
+            class="input"
+            placeholder="Nhập câu hỏi của bạn..."
+            rows="1"
+            maxlength="512"
+            aria-label="Câu hỏi"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" aria-label="Gửi" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+        <p class="input-hint">Enter để gửi · Shift+Enter xuống dòng · tối đa 512 ký tự</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

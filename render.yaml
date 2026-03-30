@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: nmk-chatbot
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      # ── LLM (Groq — free OpenAI-compatible API) ────────────
+      - key: LLM_PROVIDER
+        value: openai
+      - key: LLM_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: LLM_MODEL_NAME
+        value: llama-3.1-8b-instant
+      - key: LLM_API_KEY
+        sync: false          # set in Render dashboard → Environment
+
+      # ── Vector DB (Qdrant Cloud) ───────────────────────────
+      - key: QDRANT_URL
+        sync: false          # e.g. https://xxxx.us-east4-0.gcp.cloud.qdrant.io:6333
+      - key: QDRANT_API_KEY
+        sync: false
+      - key: QDRANT_COLLECTION_NAME
+        value: nmk_chatbot_collection
+
+      # ── App ────────────────────────────────────────────────
+      - key: APP_ENV
+        value: production
+      - key: CORS_ORIGINS
+        value: "*"
